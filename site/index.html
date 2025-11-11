@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Query-Play — Demo</title>
+  <meta name="description" content="Query-Play production demo: a static page using the built query-play.min.js component." />
+  <style>
+    :root{--bg:#fff;--fg:#222;--card:#f6f6f8}
+    [dark]{--bg:#0b1220;--fg:#e6eef8;--card:#071028}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    header{display:flex;align-items:center;justify-content:space-between;padding:1rem;box-shadow:0 1px 0 rgba(0,0,0,.04);background:var(--card)}
+    main{padding:1rem;max-width:1100px;margin:0 auto}
+    .notice{margin:0.5rem 0;padding:0.5rem;border-radius:6px;background:rgba(0,0,0,0.03)}
+    footer{padding:1rem;text-align:center;color:var(--fg);opacity:.8}
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <strong>Query-Play</strong>
+      <small style="margin-left:8px;opacity:.7">Production demo</small>
+    </div>
+    <div>
+      <a href="https://github.com/Udene1/Query-PG" target="_blank" rel="noopener">Repository</a>
+    </div>
+  </header>
+
+  <main>
+    <p class="notice">This page loads the production bundle <code>query-play.min.js</code> from the same folder. It uses a small sample OpenAPI document (<code>sample-openapi.json</code>).</p>
+
+    <!-- The production bundle should be copied next to this index.html as query-play.min.js -->
+    <script src="./query-play.min.js"></script>
+
+    <!-- Example usage: point the component at an OpenAPI URL and optionally select an endpoint -->
+    <query-play api="./sample-openapi.json" endpoint="/pets"></query-play>
+
+    <hr />
+
+    <section>
+      <h3>Notes</h3>
+      <ul>
+        <li>The component is shipped as a single-file ES module-compatible bundle in <code>query-play.min.js</code>.</li>
+        <li>If you want to use a remote OpenAPI URL, set <code>api="https://example.com/openapi.json"</code> on the element.</li>
+        <li>For production, serve these static files from any static host (Netlify, Vercel, S3, Azure Static Web Apps, etc.).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Built for static hosting · Deploy folder: <code>site/</code>
+  </footer>
+</body>
+</html>

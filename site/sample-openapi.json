@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sample Pets API",
+    "version": "1.0.0",
+    "description": "Tiny example OpenAPI to demo Query-Play"
+  },
+  "servers": [{ "url": "/" }],
+  "paths": {
+    "/pets": {
+      "get": {
+        "summary": "List pets",
+        "responses": {
+          "200": {
+            "description": "An array of pets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" }
+                    }
+                  }
+                },
+                "example": [{ "id": 1, "name": "Mittens" }, { "id": 2, "name": "Spot" }]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create pet",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "type": "object","properties": {"name":{"type":"string"}} }, "example": {"name":"Rex"} }
+          }
+        },
+        "responses": { "201": { "description": "Created" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

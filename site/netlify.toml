@@ -1,0 +1,10 @@
+[build]
+  publish = "site"
+  command = ""
+
+# Optional: set a redirect for SPA apps or API proxies if needed
+[[redirects]]
+  from = "/api/*"
+  to = "https://example.com/:splat"
+  status = 200
+  force = false
