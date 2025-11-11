@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueryPlay Demo</title>
+  <!-- Use the non-minified during development; switch to query-play.min.js for production -->
+  <script src="./query-play.js"></script>
+  <!-- <script src="./query-play.min.js"></script> -->
+  <style>body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:1rem}</style>
+</head>
+<body>
+  <h1>QueryPlay Demo</h1>
+
+  <h2>Petstore (remote OpenAPI)</h2>
+  <p>Note: remote APIs may require CORS to be enabled in the target server.</p>
+  <p><strong>Responses are syntax-highlighted for JSON and include a "Copy Response" button.</strong></p>
+  <query-play api="https://petstore3.swagger.io/api/v3/openapi.json" endpoint="/pet" ws="wss://echo.websocket.org" orientation="portrait"></query-play>
+  <p><small>Tip: use the "Highlight Response" checkbox to toggle colored view or raw JSON for copying.</small></p>
+
+  <h2>Local sample API (JSONPlaceholder-like)</h2>
+  <p>This example uses a small local OpenAPI file included with the demo.</p>
+  <query-play api="./sample-openapi.json" endpoint="/posts" auth-type="bearer"></query-play>
+  <p>Local sample-openapi.json (includes a protected POST /posts to demo Bearer token)</p>
+
+  <h2>Iframe example</h2>
+  <p>The component posts messages to the parent window when used inside an iframe.</p>
+  <iframe srcdoc='<!doctype html><html><body><query-play api="./sample-openapi.json" endpoint="/posts"></query-play><script src="/query-play.js"></script></body></html>' style="width:100%;height:520px;border:1px solid #ddd"></iframe>
+
+  <hr />
+  <p>Open <code>demo.html</code> in your browser (File -> Open) or serve the directory using a simple static server.</p>
+</body>
+</html>

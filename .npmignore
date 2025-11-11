@@ -1,0 +1,10 @@
+__tests__/
+node_modules/
+*.log
+.DS_Store
+.vscode/
+coverage/
+*.tgz
+.idea/
+*.map
+npm-debug.log
